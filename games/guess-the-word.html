@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Guess the number</title>
+		<script src="guess-the-word.js"></script>
+		<!-- помощник -->
+		<script>
+		function clicked() {
+			try {
+				start();
+			} catch(ex) {
+				alert(`Ой! Что-то пошло не так! Ошибка: ${ex}`);
+				console.err(ex);
+			}
+		}
+		</script>
+		<style>
+			.all {
+				background: #4d4244;
+				color: #deced1;
+			}
+		</style>
+	</head>
+	<body class="all">
+		<div align="center" class="all">
+			<h1>
+				Игра: угадалка слов
+			</h1>
+			<button onclick="clicked();">
+				Начать!
+			</button>
+		</div>
+	</body>
+</html>
