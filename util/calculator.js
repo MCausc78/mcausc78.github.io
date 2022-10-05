@@ -1,6 +1,6 @@
 // default regex
 //let rgx = /(\d+)\s?(%|\*|-|\+|\/|<<|>>|>>>|&|\||\^)\s?(\d+)/;
-let rgx = /(.*)\s?(%|\*|-|\+|\/|<<|>>|>>>|&|\||\^)\s?(.*)/;
+let rgx = /(.*)\s?(%|mod|\*|mul|-|minus|\+|plus|\/|div|<<|shl|>>|shr|&|and|\||or|\^|xor|pow)\s?(.*)/;
 
 // factorial detecting
 let frgx = /^(\d+)\!(.*)/;
