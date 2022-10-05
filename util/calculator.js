@@ -134,7 +134,7 @@ function start() {
 				return null;
 			}
 			r = 0n;
-			switch(op) {
+			/*switch(op) {
 			case '%': r = x % y; break;
 			case '*': r = x * y; break;
 			case '-': r = x - y; break;
@@ -142,13 +142,28 @@ function start() {
 			case '/': r = x / y; break;
 			case '<<': r = x << y; break;
 			case '>>': r = x >> y; break;
-			case '>>>': r = x >>> y; break;
 			case '&': r = x & y; break;
 			case '|': r = x | y; break;
 			case '^': r = x ^ y; break;
 			default:
 				alert(`Неизвестный оператор: '${op}'`);
 				return null;
+			}*/
+			try {
+				r = evalulate(expr);
+			} catch(ex) {
+				try {
+					if(JSON.parse(ex.message).id == 1) {
+						alert(`Неизвестный оператор: '${op}'`);
+					} else {
+						alert(`Что-то пошло не так с интерпретатором (${ex.message})`);
+					}
+					return null;
+				} catch(ex2) {
+					alert(`Что-то пошло не так с парсингом JSON :(\n${ex.stack}\n${ex.message}`);
+					alert(`Доп. исключение:\n${ex2.stack}\n${ex2.message}`);
+					return null;
+				}
 			}
 			alert(`${x} ${op} ${y} = ${r}`);
 			return null;
