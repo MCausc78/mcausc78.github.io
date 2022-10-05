@@ -3,7 +3,7 @@
 let rgx = /(.*)\s?(%|mod|\*\*|\*|mul|-|minus|\+|plus|\/\/|\/|div|\<\<|shl|\>\>|shr|&|and|\||or|\^|xor|pow|\!=|ne|==|eq|\<|lt|\<=|le|\>|gt|\>=|ge)\s?(.*)/;
 
 // factorial detecting
-let frgx = /^(\d+)\!(.*)/;
+var frgx = /^(\d+)\!(.*)/;
 
 let n, x, y, expr, er;
 
@@ -21,7 +21,31 @@ function factorial(n=0n) {
 }
 
 function evalulate(str) {
-	if(rgx.test(str)) {
+	if(frgx.test(str)) {
+		// factorial
+		let r = 0;
+		str.replace(frgx, (_, rs, err) => {
+			if(err.length != 0) {
+				throw new TypeError(JSON.stringify({
+					id: 2,
+					operand: 2,
+					argument: err
+				}));
+			} else {
+				try {
+					r = BigInt(rs);
+				} catch(ex) {
+					throw new TypeError(JSON.stringify({
+						id: 2,
+						operand: 1,
+						argument: rs
+					}));
+				}
+				r = factorial(r);
+			}
+		});
+		return r;
+	} else if(rgx.test(str)) {
 		let r;
 		str.replace(rgx, (_, xs, op, ys) => {
 			try {
