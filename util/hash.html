@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Утилиты: хэширование</title>
+		<meta charset="UTF-8"></meta>
+		<script src="hash.js"></script>
+	</head>
+	<body>
+		<center>
+		<h1>Хэширование</h1>
+		Формат строк: <select onchange="update();" id="end">
+			<option value="unix" selected>Unix (LF)</option>
+			<option value="windows">Windows (CR LF)</option>
+			<option value="macintosh">Macintosh (CR)</option>
+		</select><br/>
+		Алгоритм: <select onchange="update();" id="algorithm">
+			<option value="sha1">SHA-1</option>
+			<option value="sha256" selected>SHA-256</option>
+			<option value="sha384">SHA-384</option>
+			<option value="sha512">SHA-512</option>
+		</select>
+		<br/>
+		<br/>
+		<td id="entext">Ввод: </td>
+		<textarea id="input" rows=7 cols=20 oninput="update();">?</textarea>
+		<br/>
+		Хэш: <text id="hash">?</text>
+		</center>
+	</body>
+</html>

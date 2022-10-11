@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Утилиты: картинка</title>
+		<meta charset="UTF-8"></meta>
+		<script src="image.js"></script>
+		<script>
+			function dwrite(s='', formats=[]) {
+				document.getElementById('out').innerHTML += (format(s, formats));
+			}
+			function dwriteln(s='', formats=[]) {
+				dwrite(s+'\n', formats);
+			}
+			function format(s='', formats=[]) {
+				if(s === null || s === undefined || formats === null || formats === undefined) return null;
+				else if(formats.length == 0) return s;
+				for(let i in formats) {
+					s = s.replace('{}', formats[i]).replaceAll('{'+(i)+'}', formats[i]);
+				}
+				return s;
+			}
+
+			var img = null;
+			function __make__(image=null) {
+				if(image == null)
+					img = new AnsiImage(parseInt(document.getElementById('width').value), parseInt(document.getElementById('height').value));
+				else
+					img = image;
+				document.getElementById('make').hidden = true;
+				document.getElementById('out').value = '';
+				//document.getElementById('out').cols = img.getWidth()*2;
+				//document.getElementById('out').rows = img.getHeight()+1;
+				//this.map.get(x).set(y, color);
+				//for(let __x__=0;__x__<=img.map.size-1;__x__++) {
+				for(let [x, xval] of img.map.entries()) {
+					//for(let __y__=0;__y__<xval.size;__y__++) {
+					for(let [y, yval] of xval.entries()) {
+						dwrite(yval.toString());
+					}
+					dwriteln();
+				}
+				/*for(let xentry of img.map) {
+					for(let yentry of xentry[1]) {
+						dwrite(yentry[0], []);
+					}
+					dwriteln();
+				}*/
+			}
+		</script>
+	</head>
+	<body id="body">
+		<center>
+			<h1>Картинка</h1>
+			Ширина: <input type="number" id="width" value=128></input>
+			<br/>
+			Высота: <input type="number" id="height" value=128></input>
+			<br/>
+			<br/>
+			<!--<textarea id="out" rows=1 cols=1 readonly disabled>?</textarea>-->
+			Вывод:
+			<br/>
+			<pre id="out"></pre>
+			<br/><br/>
+			<button id="make" onclick="__make__();">Сделать картинку</button>
+		</center>
+	</body>
+</html>

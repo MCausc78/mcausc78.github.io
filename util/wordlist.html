@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Изучение:</title>
+		<meta charset="UTF-8"></meta>
+		<script>
+			window.onload = ()=>{
+				var s = prompt('Введите любые слова');
+				var us = s.split(' ');
+				for(var x in us) {
+					document.body.innerHTML += '<text>' + x + '-> <button onclick="alert(\'' + us[x] + '\')">' + us[x] + '</button></text><br/>';
+				}
+			};
+		</script>
+		<style></style>
+	</head>
+	<body id="body"></body>
+</html>

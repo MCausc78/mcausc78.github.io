@@ -72,11 +72,11 @@ function evalulate(str) {
 			switch(op) {
 			case '%': case 'mod':	r = x % y; break;
 			case '*': case 'mul':	r = x * y; break;
-			case '**': case 'pow':	r = Math.pow(x, y); break;
+			case '**': case 'pow':	r = Math.pow(Number(x), Number(y)); break;
 			case '-': case 'minus':	r = x - y; break;
 			case '+': case 'plus':	r = x + y; break;
 			case '/': case 'div':	r = x / y; break;
-			case '//': case 'floor':r = Math.floor(x / y); break;
+			case '//': case 'floor':r = Math.floor(Number(x / y)); break;
 			case '<<': case 'shl':	r = x << y; break;
 			case '>>': case 'shr':	r = x >> y; break;
 			case '&': case 'and':	r = x & y; break;
