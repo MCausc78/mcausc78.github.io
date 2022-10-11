@@ -1,0 +1,39 @@
+<!-- Страница -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Утилиты</title>
+		<meta charset="UTF-8"></meta>
+		<script src="base64.js"></script>
+		<style>
+			#base64en {
+				width: 20%;
+			}
+			#base64de {
+				width: 20%;
+			}
+			#msg {
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+		<h1>Base64</h1>
+		Формат строк: <select onchange="update();" id="end">
+			<option value="unix" selected>Unix (LF)</option>
+			<option value="windows">Windows (CR LF)</option>
+			<option value="macintosh">Macintosh (CR)</option>
+		</select>
+		<br/>
+		Сообщение: <text id="msg">Успешно</text>
+		<br/>
+		<br/>
+		<td id="entext">Шифрование: </td>
+		<textarea id="base64en" rows=7 cols=20 oninput="en64(correctText(this.value))">?</textarea>
+		<br/>
+		<td id="detext">Расшифровка: </td>
+		<textarea id="base64de" rows=7 cols=20 oninput="de64(correctText(this.value))">?</textarea>
+		</center>
+	</body>
+</html>

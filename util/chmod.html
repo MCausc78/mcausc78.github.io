@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Утилиты: кальклуятор chmod</title>
+		<meta charset="UTF-8"></meta>
+		<script src="chmod.js"></script>
+		<style>
+			#owner {
+				float: center;
+				margin-right: 5px;
+			}
+			#group {
+				float: center;
+				margin-right: 6px;
+			}
+			#users {
+				float: center;
+				margin-right: -18px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<center>
+		<h1>Калькулятор chmod</h1>
+		<br/>
+		<br/>
+		<text id="owner">В</text>
+		<text id="group">Г</text>
+		<text id="users">П</text>
+		<br/>
+		<div id="permsbox" oninput="update();">
+			R <input type="checkbox" id="or"></input><input type="checkbox" id="gr"></input><input type="checkbox" id="ur"></input><br/>
+			W<input type="checkbox" id="ow"></input><input type="checkbox" id="gw"></input><input type="checkbox" id="uw"></input><br/>
+			X <input type="checkbox" id="ox"></input><input type="checkbox" id="gx"></input><input type="checkbox" id="ux"></input><br/>
+		</div>
+		<br/>
+		Вывод: <br/>
+		В цифровом виде: <text id="num">???</text><br/>
+		В буквенном виде: <text id="str">?????????</text><br/>
+		Команда: <text id="cmd">chmod ??? myfile.txt</text>
+		</center>
+	</body>
+</html>
